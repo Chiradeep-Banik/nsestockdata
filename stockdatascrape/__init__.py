@@ -1,4 +1,3 @@
-from stockdatascrape.financialdata import financialdata
-
-from stockdatascrape.pricedata import pricedata
+from stockdatascrape.financialdata import *
+from stockdatascrape.pricedata import *
 

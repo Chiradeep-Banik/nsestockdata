@@ -3,7 +3,7 @@ import requests as rq
 import pandas as pd
 
 class pricedata():
-    def T_M_B_converter(elemment):
+    def T_M_B_converter(self,lemment):
         if "T" in elemment:
             elemment = elemment.replace("T","")
             elemment = elemment.replace(",","")
@@ -24,7 +24,7 @@ class pricedata():
         return float(elemment)
 
 
-    def get_current_price(stock):
+    def get_current_price(self,stock):
         url = f"https://in.finance.yahoo.com/quote/{stock}.NS"
         html = rq.get(url).text    
         soup = BeautifulSoup(html,"lxml")
@@ -35,7 +35,7 @@ class pricedata():
 
         return float(price)
 
-    def get_stock_volume(stock):
+    def get_stock_volume(self,stock):
         url = f"https://in.finance.yahoo.com/quote/{stock}.NS"
         data = pd.read_html(url)
         volume = data[0].at[6,1]
